@@ -11,7 +11,7 @@
   <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
  <style>
     /* Reset minimal */
-    :root{--brand:#e6ad00;--dark:#172711;--muted:#6b7280;--card:#ffffff;--glass:rgba(255,255,255,0.06);
+    :root{--brand:#e6ad00;--dark:#509238;--muted:#6b7280;--card:#ffffff;--glass:rgba(255,255,255,0.06);
     --chat--color--primary: #e742a8;
 	--chat--color--primary-shade-50: #9840db;
 	--chat--color--primary--shade-100: #3ccfb2;
@@ -22,7 +22,7 @@
 	--chat--color-light-shade-50: #e8e6f1;
 	--chat--color-light-shade-100: #c5c2cc;
 	--chat--color-medium: #d2d4d9;
-	--chat--color-dark: #101330;
+	--chat--color-dark: #21626c;
 	--chat--color-disabled: #777980;
 	--chat--color-typing: #404040;
 
@@ -318,9 +318,35 @@
   <script type="module">
 	import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
 
-	createChat({
-		webhookUrl: 'https://unaroused-monarchically-janetta.ngrok-free.dev/webhook/2b6dca8e-0a99-4556-8a0c-480131253129/chat'
-	});
+createChat({
+	webhookUrl: 'https://unaroused-monarchically-janetta.ngrok-free.dev/webhook/2b6dca8e-0a99-4556-8a0c-480131253129/chat',
+	webhookConfig: {
+		method: 'POST',
+		headers: {}
+	},
+	target: '#n8n-chat',
+	mode: 'window',
+	chatInputKey: 'chatInput',
+	chatSessionKey: 'sessionId',
+	loadPreviousSession: true,
+	metadata: {},
+	showWelcomeScreen: false,
+	defaultLanguage: 'en',
+	initialMessages: [
+		'Hi there! 👋',
+		'My name is Nathan. How can I assist you today?'
+	],
+	i18n: {
+		en: {
+			title: 'Hola! 👋',
+			subtitle: "Este chat esa disponible 24/7.",
+			footer: '',
+			getStarted: 'Nueva conversación',
+			inputPlaceholder: 'Como puedo ayudarte..',
+		},
+	},
+	enableStreaming: false,
+});
 </script>
 </body>
 </html>
